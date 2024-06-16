@@ -1,0 +1,130 @@
+﻿@page "/listar"
+@using LivrosFront.Model
+@using System.Net.Http
+@using System.Text.Json
+@inject HttpClient Http
+
+<PageTitle>Livros</PageTitle>
+
+<h1>Livros</h1>
+
+
+
+@if (Objeto == null)
+{
+    <p><strong>Nenhum livro cadastrado!</strong></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Titulo</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Autor</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach(var obj in Objeto)
+        {
+            <tr>
+                <td>@obj.Titulo</td>
+                <td>@obj.Categoria</td>
+                <td>@obj.Descricao</td>
+                <td>@obj.Autor</td>
+                <td>
+                    <a href=@($"/livro/{Alterar}/{obj.Id}") class="btn btn-warning">Alterar</a>
+                    <a href=@($"/livro/{Excluir}/{obj.Id}") class="btn btn-danger">Excluir</a>
+                </td>
+            </tr>
+        }      
+        </tbody>  
+    </table>
+
+}
+
+@code {
+    [Parameter]
+    public string? Acao { get; set; }
+
+    [Parameter]
+    public string? Id { get; set; }
+
+   
+
+    private string? mensagem = null;
+
+    private IList<Livro>? Objeto { get; set; }
+
+
+    private async Task ApresentarMensagem(string mensagem, int duracao = 2)
+    {
+        this.mensagem = mensagem;
+        var apresentarAte = DateTime.Now.AddSeconds(duracao);
+
+        StateHasChanged();
+
+        while (DateTime.Now < apresentarAte)
+            await Task.Delay(1000);
+
+    }
+
+    private bool ComparaAcao(params string[] acoes)
+    {
+        foreach (var acaoAtual in acoes)
+            if (Acao.Equals(acaoAtual, StringComparison.OrdinalIgnoreCase))
+                return true;
+        
+        return false;
+    }
+
+    private async Task Alterar()
+    {
+        var httpClient = new HttpClient();
+       
+        using StringContent jsonContent = new(
+            JsonSerializer.Serialize(Objeto),
+            System.Text.Encoding.UTF8,
+            "application/json"
+        );
+
+        using HttpResponseMessage response = await httpClient.PutAsync(
+                $"http://localhost:5187/api/livro/{Id}",
+                jsonContent
+            );
+
+        response.EnsureSuccessStatusCode();
+
+        await ApresentarMensagem($"Atleta alterado com sucesso!");
+    }
+
+    private async Task Excluir()
+    {
+        var httpClient = new HttpClient();
+       
+        using HttpResponseMessage response = await httpClient.DeleteAsync(
+            $"http://localhost:5187/api/livro/{Id}"
+        );
+
+        response.EnsureSuccessStatusCode();
+
+        await ApresentarMensagem("Atleta excluído com sucesso!");
+    }
+
+}
+
+
+
+@*@code {
+    private IList<Livro>? Objetos { get; set; } = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Objetos = await GetAsync<Livro>("/api/livro");
+    }
+}
+*@
+
+
+

@@ -1,0 +1,59 @@
+﻿@page "/cadastrar"
+@using LivrosFront.Model
+@using LivrosFront.Helpers
+@using System.Net.Http
+@using System.Text.Json
+
+<PageTitle>Cadastro</PageTitle>
+
+<h1>Cadastro de Livro</h1>
+
+<EditForm Model="Objeto" OnSubmit="Inserir" class="row g-3">
+
+    <div class="col-md-8">
+        <label class="form-label">Título</label>
+        <InputText @bind-Value="Objeto.Titulo" class="form-control" />
+        
+    </div>
+
+    <div class="col-md-8">
+        <label class="form-label">Categoria</label>
+        <InputText @bind-Value="Objeto.Categoria" class="form-control" />
+    </div>
+
+    <div class="col-8">
+        <label class="form-label">Autor</label>
+        <InputText @bind-Value="Objeto.Autor" class="form-control" />
+    </div>
+
+    <div class="col-8">
+        <label class="form-label">Descrição</label>
+        <InputText @bind-Value="Objeto.Descricao" class="form-control" />
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Novo Livro</button>
+    </div>
+</EditForm>
+
+@code {
+    private Livro? Objeto { get; set; } = new Livro();
+
+    private async Task Inserir()
+    {
+        var httpClient = new HttpClient();
+       
+        using StringContent jsonContent = new(
+            JsonSerializer.Serialize(Objeto),
+            System.Text.Encoding.UTF8,
+            "application/json"
+        );
+
+        using HttpResponseMessage response = await httpClient.PostAsync(
+                $"http://localhost:5193/livro/Livro",
+                jsonContent
+            );
+
+        response.EnsureSuccessStatusCode();
+    }
+}
