@@ -3,6 +3,7 @@
 @using LivrosFront.Helpers
 @using System.Net.Http
 @using System.Text.Json
+@inject Api api
 @inject NavigationManager NavManager
 
 <PageTitle>Cadastro</PageTitle>
@@ -41,20 +42,7 @@
 
     private async Task Inserir()
     {
-        var httpClient = new HttpClient();
-       
-        using StringContent jsonContent = new(
-            JsonSerializer.Serialize(Objeto),
-            System.Text.Encoding.UTF8,
-            "application/json"
-        );
-
-        using HttpResponseMessage response = await httpClient.PostAsync(
-                $"http://localhost:5193/livro",
-                jsonContent
-            );
-
-        response.EnsureSuccessStatusCode();
+        await api.PostAsync<Livro>("/livro", Objeto);
 
         NavManager.NavigateTo("/listar");
     }

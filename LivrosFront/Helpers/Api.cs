@@ -83,7 +83,7 @@ public class Api
         response.EnsureSuccessStatusCode();
     }
 
-    public async Task DeleteAsync(string url, string id)
+    public async Task DeleteAsync(string url, int id)
     {
         using HttpResponseMessage response = await httpClient.DeleteAsync(
             $"{url}/{id}"

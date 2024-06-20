@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "LivrosFront",
   "resources": {
-    "hash": "sha256-xNDq2+Bwc6Y6ft/vRP7qRLeJP2dBir52pKINhZ6MANc=",
+    "hash": "sha256-W+lgTK8wo8l5Jl2gNSBEKzYvynfDPN1tyYzjGPrjRLU=",
     "jsModuleNative": {
       "dotnet.native.8.0.1.67ssxdx4jy.js": "sha256-SGOlISx+3G4kkvpC9Uq3qoPGsnjxGmW61QBev0lyI5U="
     },
@@ -208,10 +208,10 @@
       "mscorlib.wasm": "sha256-EpWTfh4m/hEcXRFYMCR9YeYHwdUJgcm1laBaxWfq2S4=",
       "netstandard.wasm": "sha256-2kH24/YfHmU3B4eYRyRmiwebYROM4+B9eDWKvMnUdP8=",
       "System.Private.CoreLib.wasm": "sha256-CsySKiP7HYY1pS8LTDE60EkqiX5oHb3WoEZHDNd1yK0=",
-      "LivrosFront.wasm": "sha256-IprBQypzVYukMSHJcV1I3jTQUX332UsY40Zsm+XhlQw="
+      "LivrosFront.wasm": "sha256-YYt7vaiNWW5UsgkARSJ/reM1qMtmhCMW66sTTdlyBtA="
     },
     "pdb": {
-      "LivrosFront.pdb": "sha256-oD0+wulKDVnrNJFyi+AiTgJlMkzslGCdg0kiSyYaHE0="
+      "LivrosFront.pdb": "sha256-yUEhSZ5WoCAUxfl/CdYeoJTgOOG7NfB11ID9GfxCJXI="
     }
   },
   "cacheBootResources": true,
