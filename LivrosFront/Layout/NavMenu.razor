@@ -1,4 +1,6 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@using LivrosFront.Helpers
+
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">Livraria ADS</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
@@ -15,7 +17,7 @@
             </NavLink>
         </div>
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="cadastrar">
+            <NavLink class="nav-link" href="/cadastrar">
                 <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Cadastrar Livro
             </NavLink>
         </div>

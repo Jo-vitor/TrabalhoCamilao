@@ -1029,3 +1029,4 @@ C:\Users\João vitor\OneDrive\Área de Trabalho\ADS-3P\PWA\LivrosAPi\LivrosFront
 C:\Users\João vitor\OneDrive\Área de Trabalho\ADS-3P\PWA\LivrosAPi\LivrosFront\obj\Debug\net8.0\refint\LivrosFront.dll
 C:\Users\João vitor\OneDrive\Área de Trabalho\ADS-3P\PWA\LivrosAPi\LivrosFront\obj\Debug\net8.0\LivrosFront.pdb
 C:\Users\João vitor\OneDrive\Área de Trabalho\ADS-3P\PWA\LivrosAPi\LivrosFront\obj\Debug\net8.0\ref\LivrosFront.dll
+C:\Users\João vitor\OneDrive\Área de Trabalho\ADS-3P\PWA\LivrosAPi\LivrosFront\obj\Debug\net8.0\LivrosFront.sourcelink.json

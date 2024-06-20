@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace LivrosAPi.Controllers
 {
     [ApiController]
-    [Route("livro/[controller]")]
+    [Route("livro")]
     public class LivroController : Controller
     {
         public LivroDAO dao;

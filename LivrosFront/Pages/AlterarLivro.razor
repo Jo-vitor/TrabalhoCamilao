@@ -1,19 +1,20 @@
-﻿@page "/cadastrar"
+﻿@page "/alterar/{Id}"
 @using LivrosFront.Model
 @using LivrosFront.Helpers
 @using System.Net.Http
 @using System.Text.Json
 @inject NavigationManager NavManager
 
-<PageTitle>Cadastro</PageTitle>
+<PageTitle>Alterar</PageTitle>
 
-<h1>Cadastro de Livro</h1>
+<h1>Alterar Livro</h1>
 
-<EditForm Model="Objeto" OnSubmit="Inserir" class="row g-3">
+<EditForm Model="Objeto" OnSubmit="Alterar" class="row g-3">
 
     <div class="col-md-8">
         <label class="form-label">Título</label>
         <InputText @bind-Value="Objeto.Titulo" class="form-control" />
+        
     </div>
 
     <div class="col-md-8">
@@ -32,14 +33,17 @@
     </div>
 
     <div class="col-12">
-        <button type="submit" class="btn btn-primary">Novo Livro</button>
+        <button type="submit" class="btn btn-primary">Alterar Livro</button>
     </div>
 </EditForm>
 
 @code {
-    private Livro? Objeto { get; set; } = new Livro();
+    
+    [Parameter]
+    public string? Id { get; set; }
+    private Livro? Objeto { get; set; }
 
-    private async Task Inserir()
+    private async Task Alterar()
     {
         var httpClient = new HttpClient();
        
@@ -49,14 +53,31 @@
             "application/json"
         );
 
-        using HttpResponseMessage response = await httpClient.PostAsync(
-                $"http://localhost:5193/livro",
+        using HttpResponseMessage response = await httpClient.PutAsync(
+                $"http://localhost:5193/livro/{Id}",
                 jsonContent
             );
 
         response.EnsureSuccessStatusCode();
 
         NavManager.NavigateTo("/listar");
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        var client = new HttpClient();
+       
+        using HttpResponseMessage response = await client.GetAsync($"http://localhost:5193/livro/{Id}");
+        response.EnsureSuccessStatusCode();
+        string responseBody = await response.Content.ReadAsStringAsync();
+
+        var options = new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        };
+
+        Objeto = JsonSerializer.Deserialize<Livro>(responseBody, options);
     }
 
 }

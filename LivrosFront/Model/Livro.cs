@@ -7,7 +7,7 @@ namespace LivrosFront.Model
 {
     public class Livro
     {
-        public int? Id { get; set; }
+        public int Id { get; set; }
         
         public string Titulo {get; set;}
 

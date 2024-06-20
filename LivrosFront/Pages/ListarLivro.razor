@@ -1,16 +1,16 @@
 ﻿@page "/listar"
 @using LivrosFront.Model
+@using LivrosFront.Helpers
 @using System.Net.Http
 @using System.Text.Json
-@inject HttpClient Http
+@inject Api api
+@inject NavigationManager NavManager
 
 <PageTitle>Livros</PageTitle>
 
 <h1>Livros</h1>
 
-
-
-@if (Objeto == null)
+@if (Objetos == null)
 {
     <p><strong>Nenhum livro cadastrado!</strong></p>
 }
@@ -26,7 +26,7 @@ else
             </tr>
         </thead>
         <tbody>
-        @foreach(var obj in Objeto)
+        @foreach(var obj in Objetos)
         {
             <tr>
                 <td>@obj.Titulo</td>
@@ -34,8 +34,8 @@ else
                 <td>@obj.Descricao</td>
                 <td>@obj.Autor</td>
                 <td>
-                    <a href=@($"/livro/{Alterar}/{obj.Id}") class="btn btn-warning">Alterar</a>
-                    <a href=@($"/livro/{Excluir}/{obj.Id}") class="btn btn-danger">Excluir</a>
+                    <a href=@($"/alterar/{obj.Id}") class="btn btn-warning">Alterar</a>
+                    <button  @onclick="() => Excluir(obj.Id)" class="btn btn-danger">Excluir</button>
                 </td>
             </tr>
         }      
@@ -45,86 +45,28 @@ else
 }
 
 @code {
-    [Parameter]
-    public string? Acao { get; set; }
-
-    [Parameter]
-    public string? Id { get; set; }
-
-   
-
-    private string? mensagem = null;
-
-    private IList<Livro>? Objeto { get; set; }
-
-
-    private async Task ApresentarMensagem(string mensagem, int duracao = 2)
-    {
-        this.mensagem = mensagem;
-        var apresentarAte = DateTime.Now.AddSeconds(duracao);
-
-        StateHasChanged();
-
-        while (DateTime.Now < apresentarAte)
-            await Task.Delay(1000);
-
-    }
-
-    private bool ComparaAcao(params string[] acoes)
-    {
-        foreach (var acaoAtual in acoes)
-            if (Acao.Equals(acaoAtual, StringComparison.OrdinalIgnoreCase))
-                return true;
-        
-        return false;
-    }
-
-    private async Task Alterar()
-    {
-        var httpClient = new HttpClient();
-       
-        using StringContent jsonContent = new(
-            JsonSerializer.Serialize(Objeto),
-            System.Text.Encoding.UTF8,
-            "application/json"
-        );
-
-        using HttpResponseMessage response = await httpClient.PutAsync(
-                $"http://localhost:5187/api/livro/{Id}",
-                jsonContent
-            );
-
-        response.EnsureSuccessStatusCode();
-
-        await ApresentarMensagem($"Atleta alterado com sucesso!");
-    }
-
-    private async Task Excluir()
-    {
-        var httpClient = new HttpClient();
-       
-        using HttpResponseMessage response = await httpClient.DeleteAsync(
-            $"http://localhost:5187/api/livro/{Id}"
-        );
-
-        response.EnsureSuccessStatusCode();
-
-        await ApresentarMensagem("Atleta excluído com sucesso!");
-    }
-
-}
-
-
-
-@*@code {
     private IList<Livro>? Objetos { get; set; } = null;
 
     protected override async Task OnInitializedAsync()
     {
-        Objetos = await GetAsync<Livro>("/api/livro");
+        Objetos = await api.GetAsync<Livro>("/livro"); 
+    }
+
+    private async Task Excluir(int id)
+    {
+        var httpClient = new HttpClient();
+       
+        using HttpResponseMessage response = await httpClient.DeleteAsync(
+            $"http://localhost:5193/livro/{id}"
+        );
+
+        NavManager.NavigateTo("/listar", forceLoad: true);
+
+        response.EnsureSuccessStatusCode();
+
     }
 }
-*@
+
 
 
 

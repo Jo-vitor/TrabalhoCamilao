@@ -1,4 +1,9 @@
 @page "/dashboard"
+@using LivrosFront.Model
+@using LivrosFront.Helpers
+@using System.Net.Http
+@using System.Text.Json
+
 
 <h1 style="margin-bottom: 25px;">Dashboard</h1>
 
@@ -6,8 +11,15 @@
   <div class="col-md-4">
     <div class="card text-white bg-primary mb-3">
       <div class="card-body">
-        <h5 class="card-title">Quantidade total:</h5>
-        <p class="card-text">Um exemplo de texto rápido para construir o título do card e fazer preencher o conteúdo do card.</p>
+        <h5 class="card-title">Quantidade total de livros:</h5>
+        <h3 class="card-text">
+        @* @if (Objetos == null)
+        {
+            <h2>Nenhum livro cadastrado!</h2>
+        }else{
+          <p>123</p>
+        } *@
+      </h3>
       </div>
     </div>
   </div>
@@ -15,7 +27,7 @@
     <div class="card text-white bg-secondary mb-3">
       <div class="card-body">
         <h5 class="card-title">Quantidade por gênero:</h5>
-        <p class="card-text">Um exemplo de texto rápido para construir o título do card e fazer preencher o conteúdo do card.</p>
+        <h3 class="card-text"><h2>900</h2></h3>
       </div>
     </div>
   </div>
@@ -23,10 +35,20 @@
     <div class="card text-white bg-success mb-3">
       <div class="card-body">
         <h5 class="card-title">Último Livro adicionado</h5>
-        <p class="card-text">Um exemplo de texto rápido para construir o título do card e fazer preencher o conteúdo do card.</p>
+        <h3 class="card-text"><h2>900</h2></h3>
       </div>
     </div>
   </div>
 </div>
 
 
+
+@* @code {
+    private IList<Livro>? Objetos { get; set; } = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Objetos = await api.GetAsync<Livro>("/livro"); 
+    }
+
+} *@
