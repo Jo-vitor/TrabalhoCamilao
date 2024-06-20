@@ -18,8 +18,8 @@ namespace LivrosAPi.Daos
                 conexao.Open();
 
                 string sql = $"INSERT INTO {NomeTabela}" +
-                                    $" (id, titulo, categoria, descricao, autor)" +
-                                    $" VALUES (@Id, @Titulo, @Categoria, @Descricao, @Autor)";
+                                    $" (titulo, categoria, descricao, autor)" +
+                                    $" VALUES (@Titulo, @Categoria, @Descricao, @Autor)";
 
                 await conexao.ExecuteAsync(sql, obj);
             }

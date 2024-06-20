@@ -41,11 +41,7 @@ namespace LivrosAPi.Controllers
         {
             await dao.InserirAsync(obj);
 
-            return CreatedAtAction(
-                nameof(GetId),
-                new { id = obj.Id },
-                obj
-            );
+            return Ok(obj);
         }
 
         [HttpPut("{id}")]

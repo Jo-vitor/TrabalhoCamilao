@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LivrosFront")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5b1bbb8dc723ce26d4b796bf321d3c138b79a044")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ff49eb62cddd3d68cb27cdeea16c6a2861fff756")]
 [assembly: System.Reflection.AssemblyProductAttribute("LivrosFront")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LivrosFront")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
