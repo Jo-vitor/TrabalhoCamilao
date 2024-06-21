@@ -3,7 +3,7 @@
 @using LivrosFront.Helpers
 @using System.Net.Http
 @using System.Text.Json
-
+@inject Api api
 
 <h1 style="margin-bottom: 25px;">Dashboard</h1>
 
@@ -12,38 +12,43 @@
     <div class="card text-white bg-primary mb-3">
       <div class="card-body">
         <h5 class="card-title">Quantidade total de livros:</h5>
-        <h3 class="card-text">
-        @* @if (Objetos == null)
+        <div class="card-text">
+        @if (Objetos == null)
         {
             <h2>Nenhum livro cadastrado!</h2>
         }else{
-          <p>123</p>
-        } *@
-      </h3>
+            <h2>@Objetos.Count</h2>
+        }
+        
+      </div>
       </div>
     </div>
   </div>
+
   <div class="col-md-4">
     <div class="card text-white bg-secondary mb-3">
       <div class="card-body">
-        <h5 class="card-title">Quantidade por gênero:</h5>
-        <h3 class="card-text"><h2>900</h2></h3>
+        <h5 class="card-title">Primeiro Livro adicionado:</h5>
+        <div class="card-text">
+          <h2>@Objetos[0].Titulo</h2>
+        </div>
       </div>
     </div>
   </div>
+ 
   <div class="col-md-4">
     <div class="card text-white bg-success mb-3">
       <div class="card-body">
         <h5 class="card-title">Último Livro adicionado</h5>
-        <h3 class="card-text"><h2>900</h2></h3>
+        <div class="card-text">
+          <h2>@Objetos[Objetos.Count-1].Titulo</h2>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-
-
-@* @code {
+@code {
     private IList<Livro>? Objetos { get; set; } = null;
 
     protected override async Task OnInitializedAsync()
@@ -51,4 +56,4 @@
         Objetos = await api.GetAsync<Livro>("/livro"); 
     }
 
-} *@
+}
