@@ -10,6 +10,26 @@
 
 <h1>Livros</h1>
 
+<div class="mb-3">
+    <label for="inputId" class="form-label">Buscar por ID:</label>
+    <input type="text" class="form-control" id="inputId" @bind="IdBusca">
+    <button class="btn btn-primary mt-3" @onclick="BuscarPorId">Buscar</button>
+</div>
+@if(ObjetoEncontrado != null)
+{
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">@ObjetoEncontrado.Id</h5>
+            <h5 class="card-title">@ObjetoEncontrado.Titulo</h5>
+            <h6 class="card-subtitle mb-2 text-muted">@ObjetoEncontrado.Categoria</h6>
+            <p class="card-text">@ObjetoEncontrado.Descricao</p>
+            <p class="card-text">Autor: @ObjetoEncontrado.Autor</p>
+            <a href=@($"/alterar/{ObjetoEncontrado.Id}") class="btn btn-warning">Alterar</a>
+            <button @onclick="() => Excluir(ObjetoEncontrado.Id)" class="btn btn-danger">Excluir</button>
+        </div>
+    </div>
+}
+
 @if (Objetos == null)
 {
     <p><strong>Nenhum livro cadastrado!</strong></p>
@@ -19,6 +39,7 @@ else
     <table class="table">
         <thead>
             <tr>
+                <th scope="col">Id</th>
                 <th scope="col">Titulo</th>
                 <th scope="col">Categoria</th>
                 <th scope="col">Descrição</th>
@@ -29,6 +50,7 @@ else
         @foreach(var obj in Objetos)
         {
             <tr>
+                <td>@obj.Id</td>
                 <td>@obj.Titulo</td>
                 <td>@obj.Categoria</td>
                 <td>@obj.Descricao</td>
@@ -46,6 +68,8 @@ else
 
 @code {
     private IList<Livro>? Objetos { get; set; } = null;
+    private string IdBusca { get; set; } = null;
+    private Livro? ObjetoEncontrado { get; set; } = null;
 
     protected override async Task OnInitializedAsync()
     {
@@ -66,8 +90,16 @@ else
 
     }
 
+    private async Task BuscarPorId()
+    {
+        if (IdBusca == null)
+        {
+            return;
+        }
+        
+        ObjetoEncontrado = await api.GetAsync<Livro>("/livro", IdBusca); 
+        
+    }
+
 }
-
-
-
 

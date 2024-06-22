@@ -10,26 +10,31 @@
 
 <h1>Cadastro de Livro</h1>
 
-<EditForm Model="Objeto" OnSubmit="Inserir" class="row g-3">
+<EditForm Model="@Objeto" OnSubmit="Inserir" class="row g-3">
+    <DataAnnotationsValidator />
 
     <div class="col-md-8">
         <label class="form-label">Título</label>
         <InputText @bind-Value="Objeto.Titulo" class="form-control" />
+        <ValidationMessage For="@(() => Objeto.Titulo)" />
     </div>
 
     <div class="col-md-8">
         <label class="form-label">Categoria</label>
         <InputText @bind-Value="Objeto.Categoria" class="form-control" />
-    </div>
-
-    <div class="col-8">
-        <label class="form-label">Autor</label>
-        <InputText @bind-Value="Objeto.Autor" class="form-control" />
+        <ValidationMessage For="@(() => Objeto.Categoria)" />
     </div>
 
     <div class="col-8">
         <label class="form-label">Descrição</label>
         <InputText @bind-Value="Objeto.Descricao" class="form-control" />
+        <ValidationMessage For="@(() => Objeto.Descricao)" />
+    </div>
+
+    <div class="col-8">
+        <label class="form-label">Autor</label>
+        <InputText @bind-Value="Objeto.Autor" class="form-control" />
+        <ValidationMessage For="@(() => Objeto.Autor)" />
     </div>
 
     <div class="col-12">

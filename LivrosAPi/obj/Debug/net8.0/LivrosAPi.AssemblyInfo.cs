@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LivrosAPi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5c7806ad72a7e62cd6790a2d5542c452b8704e26")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+46f221c28242ac46da20bbf2f7e7bf7de8794841")]
 [assembly: System.Reflection.AssemblyProductAttribute("LivrosAPi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LivrosAPi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vq6Z6WB0LfcgDC5yphOem79rJ97UUmxGuHYCcko+htc=",
+  "Hash": "rpRBwUk18GLeM3VkTgUzSLERfLbIloDQH2KoFLXx8QU=",
   "Source": "LivrosFront",
   "BasePath": "/",
   "Mode": "Root",
@@ -52,7 +52,7 @@
       "AssetTraitValue": "boot",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\João vitor\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\8.0.1\\build\\net8.0\\blazor.webassembly.js"
+      "OriginalItemSpec": "C:\\Users\\João vitor\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\8.0.0\\build\\net8.0\\blazor.webassembly.js"
     },
     {
       "Identity": "C:\\Users\\João vitor\\OneDrive\\Área de Trabalho\\ADS-3P\\PWA\\LivrosAPi\\LivrosFront\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js",
@@ -6097,6 +6097,25 @@
       "OriginalItemSpec": "C:\\Users\\João vitor\\OneDrive\\Área de Trabalho\\ADS-3P\\PWA\\LivrosAPi\\LivrosFront\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_no_CJK.dat"
     },
     {
+      "Identity": "C:\\Users\\João vitor\\OneDrive\\Área de Trabalho\\ADS-3P\\PWA\\LivrosAPi\\LivrosFront\\obj\\Debug\\net8.0\\compressed\\mi85xr571e.gz",
+      "SourceId": "LivrosFront",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\João vitor\\OneDrive\\Área de Trabalho\\ADS-3P\\PWA\\LivrosAPi\\LivrosFront\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/blazor.webassembly.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\João vitor\\OneDrive\\Área de Trabalho\\ADS-3P\\PWA\\LivrosAPi\\LivrosFront\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\João vitor\\OneDrive\\Área de Trabalho\\ADS-3P\\PWA\\LivrosAPi\\LivrosFront\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js"
+    },
+    {
       "Identity": "C:\\Users\\João vitor\\OneDrive\\Área de Trabalho\\ADS-3P\\PWA\\LivrosAPi\\LivrosFront\\obj\\Debug\\net8.0\\compressed\\n3c1qzd70t.gz",
       "SourceId": "LivrosFront",
       "SourceType": "Computed",
@@ -6114,25 +6133,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\João vitor\\OneDrive\\Área de Trabalho\\ADS-3P\\PWA\\LivrosAPi\\LivrosFront\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Numerics.Vectors.wasm"
-    },
-    {
-      "Identity": "C:\\Users\\João vitor\\OneDrive\\Área de Trabalho\\ADS-3P\\PWA\\LivrosAPi\\LivrosFront\\obj\\Debug\\net8.0\\compressed\\n3jxy6khem.gz",
-      "SourceId": "LivrosFront",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\João vitor\\OneDrive\\Área de Trabalho\\ADS-3P\\PWA\\LivrosAPi\\LivrosFront\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/blazor.webassembly.js.gz",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\João vitor\\OneDrive\\Área de Trabalho\\ADS-3P\\PWA\\LivrosAPi\\LivrosFront\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\João vitor\\OneDrive\\Área de Trabalho\\ADS-3P\\PWA\\LivrosAPi\\LivrosFront\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js"
     },
     {
       "Identity": "C:\\Users\\João vitor\\OneDrive\\Área de Trabalho\\ADS-3P\\PWA\\LivrosAPi\\LivrosFront\\obj\\Debug\\net8.0\\compressed\\n9ezhrhowf.gz",
